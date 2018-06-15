@@ -1,5 +1,6 @@
 package com.dointhai.rezonance;
 
+import com.dointhai.rezonance.bean.AWSData;
 import com.dointhai.rezonance.util.DOMExplorer;
 import com.dointhai.rezonance.util.Reader;
 import java.util.ArrayList;

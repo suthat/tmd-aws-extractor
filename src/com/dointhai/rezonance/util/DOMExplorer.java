@@ -1,6 +1,6 @@
 package com.dointhai.rezonance.util;
 
-import com.dointhai.rezonance.AWSData;
+import com.dointhai.rezonance.bean.AWSData;
 import java.util.ArrayList;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -55,7 +55,7 @@ public class DOMExplorer {
                             }
                             awsDataCollection.add(awsData);
                             index[0]++;
-                        }                     
+                        }           
                     });
                 });
             }

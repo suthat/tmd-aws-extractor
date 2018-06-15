@@ -1,5 +1,5 @@
 
-package com.dointhai.rezonance;
+package com.dointhai.rezonance.bean;
 
 /**
  *
