@@ -15,7 +15,6 @@ sample/reports_minute_2010-01-01 00_01_2010-01-01 24_00.xls
 
 #### Run
 NetBeans IDE
-Main Method
 ```
 com.dointhai.rezonance.Extractor.java
 ```
