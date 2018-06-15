@@ -1,6 +1,11 @@
 ## TMD AWS History Extractor
 The data extractor of XLS files (but HTML source code inside!) which are from Thai Meteorological Department (TMD) 's automatic weather station (AWS)
 
+#### Requirement
+```
+Java 1.8.0+ (Java 8+)
+```
+
 #### Required libraries
 jsoup: Java HTML Parser, a Java library for working with real-world HTML.
 ```
