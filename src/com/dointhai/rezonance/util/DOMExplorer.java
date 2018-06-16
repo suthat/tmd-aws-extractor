@@ -1,6 +1,7 @@
 package com.dointhai.rezonance.util;
 
 import com.dointhai.rezonance.bean.AWSData;
+import com.dointhai.rezonance.bean.AWSEnum;
 import java.util.ArrayList;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -39,19 +40,28 @@ public class DOMExplorer {
                     Elements cols = row.select("td");
                     cols.forEach((Element data) -> {
                         if(! data.text().trim().equals("")) {
-                            switch(index[0]) {
-                                case 0: awsData.setDateTime(data.text().trim()); break;
-                                case 1: awsData.setWindSpeed(data.text().trim()); break;
-                                case 2: awsData.setWindDirection(data.text().trim()); break;
-                                case 3: awsData.setWindDirectionText(data.text().trim()); break;
-                                case 4: awsData.setGustWindSpeed(data.text().trim()); break;
-                                case 5: awsData.setGustWindDirection(data.text().trim()); break;
-                                case 6: awsData.setGustWindDirectionText(data.text().trim()); break;
-                                case 7: awsData.setTemperature(data.text().trim()); break;
-                                case 8: awsData.setPrecipitation(data.text().trim()); break;
-                                case 9: awsData.setPressure(data.text().trim()); break;
-                                case 10: awsData.setHumidity(data.text().trim()); break;
-                                default:;
+                            if(index[0] == AWSEnum.DATE_TIME.getIndex()) {
+                                awsData.setDateTime(data.text().trim());
+                            } else if(index[0] == AWSEnum.WIND_SPEED.getIndex()) {
+                                awsData.setWindSpeed(data.text().trim());
+                            } else if(index[0] == AWSEnum.WIND_DIRECTION.getIndex()) {
+                                awsData.setWindDirection(data.text().trim());
+                            } else if(index[0] == AWSEnum.WIND_DIRECTION_TEXT.getIndex()) {
+                                awsData.setWindDirectionText(data.text().trim());
+                            } else if(index[0] == AWSEnum.GUST_SPEED.getIndex()) {
+                                awsData.setGustWindSpeed(data.text().trim());
+                            } else if(index[0] == AWSEnum.GUST_DIRECTION.getIndex()) {
+                                awsData.setGustWindDirection(data.text().trim());
+                            } else if(index[0] == AWSEnum.GUST_DIRECTION_TEXT.getIndex()) {
+                                awsData.setGustWindDirectionText(data.text().trim());
+                            } else if(index[0] == AWSEnum.TEMPERATURE.getIndex()) {
+                                awsData.setTemperature(data.text().trim());
+                            } else if(index[0] == AWSEnum.PRECIPITATION.getIndex()) {
+                                awsData.setPrecipitation(data.text().trim());
+                            } else if(index[0] == AWSEnum.PRESSURE.getIndex()) {
+                                awsData.setPressure(data.text().trim());
+                            } else if(index[0] == AWSEnum.HUMIDITY.getIndex()) {
+                                awsData.setHumidity(data.text().trim());
                             }
                             awsDataCollection.add(awsData);
                             index[0]++;
