@@ -16,17 +16,22 @@ import java.util.ArrayList;
 public class Extractor {
     
     private static final String targetDirPath = "/Users/suthatronglong/Desktop/tmd-aws-chan";
+    private static DBCreator db = new DBCreator();
     
     public static void main(String args[]) {
-        DBCreator db = new DBCreator();
-        db.createConnection();
         try {
+            db.createConnection();
             Files.list(Paths.get(targetDirPath))
-                    .filter(Files::isRegularFile)
-                    .forEach((file) -> {
-                        System.out.println(file.getFileName());
-                        extractorToObject(targetDirPath + "/" + file.getFileName());
-                    });
+                .filter(Files::isRegularFile)
+                .forEach((file) -> {
+                    System.out.println(file.getFileName());
+                    // Sample file name: reports_minute_2010-01-01 00_01_2010-01-01 24_00.xls
+                    String date = file.getFileName().toString().split("_")[2];
+                    date = date.split(" ")[0];
+                    //System.out.println(date);
+                    extractorToObject(targetDirPath + "/" + file.getFileName(), date);
+                });
+            db.closeConnection();
         }catch(IOException e) {
             System.out.println("FileNotFoundException >>> " + e.getMessage());
         }catch(Exception e) {
@@ -34,7 +39,7 @@ public class Extractor {
         }
     }
     
-    public static void extractorToObject(String pathToFile) {
+    public static void extractorToObject(String pathToFile, String date) {
         Reader reader = new Reader(pathToFile);
         reader.readAllLines();
         StringBuffer content = reader.getContentAfterReading();
@@ -44,7 +49,12 @@ public class Extractor {
         ArrayList<AWSData> awsDataCollection = explorer.getAwsDataCollection();
         awsDataCollection.forEach((data) -> {
             System.out.println(data.toString());
+            insertToDB(data, date);
         });
+    }
+    
+    public static void insertToDB(AWSData data, String date) {
+        db.insert(data, date);
     }
     
 }
