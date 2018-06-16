@@ -62,11 +62,11 @@ public class DOMExplorer {
                                 awsData.setPressure(data.text().trim());
                             } else if(index[0] == AWSEnum.HUMIDITY.getIndex()) {
                                 awsData.setHumidity(data.text().trim());
-                            }
-                            awsDataCollection.add(awsData);
+                            } 
                             index[0]++;
-                        }           
+                        }     
                     });
+                    awsDataCollection.add(awsData);
                 });
             }
         });
