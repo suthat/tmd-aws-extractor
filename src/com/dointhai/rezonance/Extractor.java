@@ -20,18 +20,18 @@ public class Extractor {
     public static void main(String args[]) {
         DBCreator db = new DBCreator();
         db.createConnection();
-//        try {
-//            Files.list(Paths.get(targetDirPath))
-//                    .filter(Files::isRegularFile)
-//                    .forEach((file) -> {
-//                        System.out.println(file.getFileName());
-//                        extractorToObject(targetDirPath + "/" + file.getFileName());
-//                    });
-//        }catch(IOException e) {
-//            System.out.println("FileNotFoundException >>> " + e.getMessage());
-//        }catch(Exception e) {
-//            System.out.println("Exception >>> " + e.getMessage());
-//        }
+        try {
+            Files.list(Paths.get(targetDirPath))
+                    .filter(Files::isRegularFile)
+                    .forEach((file) -> {
+                        System.out.println(file.getFileName());
+                        extractorToObject(targetDirPath + "/" + file.getFileName());
+                    });
+        }catch(IOException e) {
+            System.out.println("FileNotFoundException >>> " + e.getMessage());
+        }catch(Exception e) {
+            System.out.println("Exception >>> " + e.getMessage());
+        }
     }
     
     public static void extractorToObject(String pathToFile) {
