@@ -1,4 +1,3 @@
-
 package com.dointhai.rezonance.sql;
 
 import com.dointhai.rezonance.bean.AWSData;
