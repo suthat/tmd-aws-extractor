@@ -7,9 +7,17 @@ Java 1.8.0+ (Java 8+)
 ```
 
 #### Required libraries
-jsoup: Java HTML Parser, a Java library for working with real-world HTML.
+Java HTML Parser, a Java library for working with real-world HTML
 ```
 assets/jsoup-1.11.3.jar
+```
+Build type safe SQL queries through its fluent API
+```
+assets/jooq-3.11.0.jar
+```
+Java JDBC connection
+```
+mysql-connector-java-5.1.15-bin.jar
 ```
 
 #### Assets
