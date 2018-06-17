@@ -26,8 +26,18 @@ Example of the XLS file
 sample/reports_minute_2010-01-01 00_01_2010-01-01 24_00.xls
 ```
 
+#### Configurations
+Database config
+```
+com.dointhai.rezonance.sql.DBCreator.java
+```
+Database structure
+```
+database/weather_logs.sql
+```
+
 #### Run
-NetBeans IDE
+Main Java file and local path of target directory
 ```
 com.dointhai.rezonance.Extractor.java
 ```
