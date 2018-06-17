@@ -4,6 +4,8 @@ The data extractor of XLS files (but HTML source code inside!) which are from Th
 #### Requirement
 ```
 Java 1.8.0+ (Java 8+)
+MySQL5.6+ or MariaDB 
+NetBeans IDE 8+
 ```
 
 #### Required libraries
